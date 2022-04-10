@@ -1,0 +1,351 @@
+package cispackage;
+
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.By.ByXPath;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+
+public class Paziresh {
+	element_Highlight eh= new element_Highlight();
+
+
+	WebDriver driver;
+	JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+	
+	WebElement FamilyName;
+	String FamilyName1;
+	
+	WebElement select;
+
+	
+	WebElement Trapist;
+	String Trapist1;
+	
+	WebElement Clinic;
+	String Clinic1;
+	
+	WebElement shift;
+	String shift1;
+	
+	WebElement Computational;
+	String Computational1;
+	
+	WebElement SerialBooklet;
+	String SerialBooklet1;
+	
+	WebElement bookletPage;
+	String bookletPage1;
+	
+	WebElement Service;
+	String Service1;
+	
+	WebElement supplementary;
+	String supplementary1;
+	
+	WebElement letternumber;
+	String letternumber1;
+
+	WebElement letterDate;
+	String letterDate1;
+
+	WebElement Percentage;
+	String Percentage1;
+
+	WebElement ceiling;
+	String ceiling1;
+
+	WebElement sabt;
+
+	WebElement Switch;
+	
+	WebElement Lock;
+	
+	WebElement admitList;
+	
+	WebElement NationalCodeA;
+	String NationalCode1;
+	
+	WebElement NationalCodeB;
+
+
+
+
+
+
+	
+
+	
+	
+	
+  @Test
+  public void f() throws InterruptedException {
+	  
+	  Thread.sleep(1000);
+	  FamilyName = driver.findElement(By.name("FamilyName"));
+      eh.highlightElement(driver, FamilyName);
+	  Thread.sleep(1000);
+	  FamilyName.sendKeys(FamilyName1);
+	  FamilyName.sendKeys(Keys.ENTER);
+	  eh.unhighlightLastB(driver, FamilyName);
+	  Thread.sleep(5000);
+	  
+	  select=driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-admit/div/div[2]/app-admit-patient-search/div[2]/div/kendo-grid/div/kendo-grid-list/div/div[1]/table/tbody/tr[1]"));
+      eh.highlightElement(driver, select);
+	  Thread.sleep(2000);
+	  select.click();
+	  eh.unhighlightLast(driver, select);
+	  
+	  NationalCodeA=driver.findElement(By.id("inputNationalCode"));
+	  NationalCode1=NationalCodeA.getAttribute("value");
+	  System.out.println(NationalCode1);
+	  
+
+
+	  
+	  
+	  Switch=driver.findElement(By.cssSelector("#addBox > div.row.mx-0.m-2.acceptPatient > div.col-lg-5.col-12.p-2.admit > form > div > div:nth-child(1) > div > div.row.m-0 > div.col-md-1.p-0 > a"));
+      eh.highlightElement(driver, Switch);
+	  Thread.sleep(1000);
+      Switch.click();
+	  eh.unhighlightLast(driver, Switch);
+
+	  Thread.sleep(2000);
+	  
+
+	  Trapist=driver.findElement(By.cssSelector("#Therapist > div > div > div > kendo-combobox > span > span > span"));
+      eh.highlightElement(driver, Trapist);
+	  Thread.sleep(1000);
+	  Trapist.click();    Thread.sleep(1000);  
+	  driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-admit/div/div[2]/div/div[2]/div[1]/div[1]/form/div/div[1]/div/div[2]/div[1]/div/div[2]/div/div/div/kendo-combobox/span/kendo-searchbar/input")).sendKeys(Keys.DOWN);
+	  driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-admit/div/div[2]/div/div[2]/div[1]/div[1]/form/div/div[1]/div/div[2]/div[1]/div/div[2]/div/div/div/kendo-combobox/span/kendo-searchbar/input")).sendKeys(Keys.ENTER);
+	  Thread.sleep(1000);
+	  eh.unhighlightLast(driver, Trapist);
+	  Thread.sleep(1000);
+	  WebElement Tra=driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-admit/div/div[2]/div[2]/div[1]/div[1]/form/div/div[1]/div/div[2]/div[1]/div/div[2]/div/div/kendo-combobox/span/kendo-searchbar/input"));
+	  Tra.click();
+	  String Tr =Tra.getAttribute("value");
+	  System.out.println(Tr);
+	  Lock=driver.findElement(By.id("btnlockTherapist"));
+	  Lock.click();
+	  
+	  
+	  
+
+
+	  
+	  System.out.println("123");
+	 
+	  
+	  Clinic=driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-admit/div/div[2]/div[2]/div[1]/div[1]/form/div/div[1]/div/div[2]/div[1]/div/div[1]/div/div/kendo-combobox/span/kendo-searchbar/input"));
+	  Clinic.sendKeys(Clinic1);
+	  Thread.sleep(1000); 
+	  Clinic.sendKeys(Keys.DOWN);
+	  Thread.sleep(1000); 
+      Clinic.sendKeys(Keys.ENTER);
+	  Thread.sleep(2000); 
+	  System.out.println("123");
+	  
+	  shift=driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-admit/div/div[2]/div[2]/div[1]/div[1]/form/div/div[1]/div/div[4]/div[2]/div/kendo-combobox/span/kendo-searchbar/input"));
+      eh.highlightElement(driver, shift);
+	  shift.sendKeys(shift1);
+	  Thread.sleep(1000); 
+	  shift.sendKeys(Keys.DOWN);
+	  shift.sendKeys(Keys.ENTER);
+	  eh.unhighlightLast(driver, shift);
+
+	  
+	  Computational=driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-admit/div/div[2]/div[2]/div[1]/div[1]/form/div/div[2]/div/div[1]/kendo-combobox/span/kendo-searchbar/input"));
+      eh.highlightElement(driver, Computational);
+	  Thread.sleep(1000);
+	  Computational.sendKeys(Computational1);
+	  Computational.sendKeys(Keys.DOWN);
+	  Computational.sendKeys(Keys.ENTER);
+	  eh.unhighlightLast(driver, Computational);
+
+	  
+	  SerialBooklet=driver.findElement(By.id("serial"));
+      eh.highlightElement(driver, SerialBooklet);
+	  Thread.sleep(1000);
+	  SerialBooklet.sendKeys(SerialBooklet1);
+	  eh.unhighlightLastB(driver, SerialBooklet);
+
+	  
+	  bookletPage=driver.findElement(By.id("page"));
+      eh.highlightElement(driver, bookletPage);
+	  Thread.sleep(1000);
+	  bookletPage.sendKeys(bookletPage1);
+	  eh.unhighlightLastB(driver, bookletPage);
+
+	  
+	  supplementary=driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-admit/div/div[2]/div[2]/div[1]/div[1]/form/div/div[2]/div/div[3]/div[1]/div/kendo-combobox/span/kendo-searchbar/input"));
+      eh.highlightElement(driver, supplementary);
+	  Thread.sleep(1000);
+	  supplementary.sendKeys(supplementary1);
+	  supplementary.sendKeys(Keys.ENTER);
+	  eh.unhighlightLast(driver, supplementary);
+
+	  letternumber=driver.findElement(By.id("letter"));
+      eh.highlightElement(driver, letternumber);
+	  Thread.sleep(1000);
+	  letternumber.sendKeys(letternumber1);
+	  eh.unhighlightLastB(driver, letternumber);
+
+	  
+	  letterDate=driver.findElement(By.id("mat-input-0"));
+      eh.highlightElement(driver, letterDate);
+	  Thread.sleep(1000);
+	  letterDate.sendKeys(letterDate1);
+	  eh.unhighlightLast(driver, letterDate);
+
+	  
+	  Percentage=driver.findElement(By.id("darsad"));
+      eh.highlightElement(driver, Percentage);
+	  Thread.sleep(1000);
+	  Percentage.sendKeys(Percentage1);
+	  eh.unhighlightLastB(driver, Percentage);
+
+	  ceiling=driver.findElement(By.id("Ceiling"));
+      eh.highlightElement(driver, ceiling);
+	  Thread.sleep(1000);
+	  ceiling.sendKeys(ceiling1);
+	  eh.unhighlightLastB(driver, ceiling);
+
+	  
+	  Service=driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-admit/div/div[2]/div[2]/div[1]/div[2]/div/div/div/kendo-grid/div/kendo-grid-list/div/div[1]/table/tbody/tr[1]"));
+      eh.highlightElement(driver, Service);
+	  Thread.sleep(1000);
+	  Service.click();
+	  eh.unhighlightLast(driver, Service);
+
+	  sabt=driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-admit/div/div[1]/button[3]"));
+      eh.highlightElement(driver, sabt);
+	  Thread.sleep(1000);
+	  sabt.click();
+      Thread.sleep(1000);
+	  eh.unhighlightLast(driver, sabt);
+
+
+      WebElement POPUP= driver.findElement(By.xpath("/html/body/div[2]/div/div/snack-bar-container"));
+      eh.highlightElement(driver, POPUP);
+      Thread.sleep(1000);
+      String c= driver.findElement(By.xpath("/html/body/div[2]/div/div/snack-bar-container")).getText();
+      System.out.print("resulte:"+ c);
+      Assert.assertEquals(c, "پذیرش بیمار با موفقیت ثبت شد.\n"
+      		+ "x");
+      Thread.sleep(1000);
+
+      String Tr1=Tra.getAttribute("value");
+      Assert.assertEquals(Tr, Tr1);
+      eh.highlightElement(driver, Trapist);
+      Thread.sleep(2000);
+
+//      
+//      admitList=driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-admit/div/div[1]/button[2]"));
+//      eh.highlightElement(driver, admitList);
+//      admitList.click();
+//      Thread.sleep(2000);
+//      
+//      NationalCodeB=driver.findElement(By.id("inputNationalCode"));
+//      NationalCodeB.sendKeys(NationalCode1);
+//      NationalCodeB.sendKeys(Keys.ENTER);
+//      
+     
+      
+      
+      
+
+      
+      
+     
+
+	  
+	  
+	  
+  }
+  @BeforeMethod
+  public void beforeMethod() throws InterruptedException {
+	  
+	  System.setProperty("webdriver.chrome.driver", "C:\\Users\\s.mollahasani\\webdriver\\chromedriver.exe");
+	  driver = new ChromeDriver();
+	  
+	     FamilyName1="احم";
+		
+		 Trapist1="مسعود";
+		
+		 Clinic1="جراحی";
+		 
+		 shift1="ظهر";
+		
+		 Computational1="بستری";
+		
+		 SerialBooklet1="569";
+		 
+		 bookletPage1="2";
+		
+		 Service1="";
+		
+		 supplementary1="تامین اجتماعی";
+		
+		 letternumber1="687";
+
+		 letterDate1="1400/07/13";
+
+		 Percentage1="20";
+
+		 ceiling1="25000";
+
+	  driver.get("http://79.175.176.91:8027/");
+	   driver.manage().window().maximize();
+	   WebElement user= driver.findElement(By.xpath("/html/body/app-root/div/app-login/div/div/div/div[3]/form/div[1]/div/input"));
+	      eh.highlightElement(driver, user);
+		  Thread.sleep(1000);
+		  user.sendKeys("0099820099");
+		  eh.unhighlightLast(driver, user);
+		  //JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		 // jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", user);  
+		  Thread.sleep(1000);
+		  
+	      WebElement pass= driver.findElement(By.xpath("/html/body/app-root/div/app-login/div/div/div/div[3]/form/div[2]/div/input[2]"));
+	      eh.highlightElement(driver, pass);
+		  Thread.sleep(1000);
+		  pass.sendKeys("NZ0kdKF2");
+		  eh.unhighlightLast(driver, pass);
+		  Thread.sleep(1000);
+
+		  WebElement login= driver.findElement(By.xpath("//*[@id=\"login-schedule-btn\"]"));
+	      eh.highlightElement(driver, login);
+		  Thread.sleep(1000);
+		  login.click();
+		  eh.unhighlightLast(driver, login);
+
+		  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		  
+		  WebElement cis= driver.findElement(By.xpath("/html/body/app-root/div/app-layout/div/div/his-home/div[1]/div/div[1]/nav/ul/li[2]/a/span"));
+	      eh.highlightElement(driver, cis);
+		  Thread.sleep(3000);
+		  cis.click();
+		  eh.unhighlightLast(driver, cis);
+		  System.out.println(driver.getCurrentUrl());
+		  //System.out.println(driver.getWindowHandles());
+		  for(String window : driver.getWindowHandles() ) {
+			  driver.switchTo().window(window);
+		  }
+		  Thread.sleep(3000);
+
+  }
+
+  @AfterMethod
+  public void afterMethod() {
+  }
+
+}

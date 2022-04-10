@@ -1,0 +1,258 @@
+package cispackage;
+
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+
+public class cislogin {
+      String NationalCode;
+	  String name;
+      String familyName;
+	  String fatherName;
+	  String meliat;
+	  String sex;
+	  String BirthDate;
+	  String MahalTavalod;
+	  String Tahol;
+	  String shahr;
+	  String Adress;
+	  String Bime;
+	  String Sandogh;
+	  String BimeDate;
+	  String Nesbat;
+	WebDriver driver;
+
+	JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+  @Test
+  public void f() throws InterruptedException {
+
+	  WebElement user= driver.findElement(By.xpath("/html/body/app-root/div/app-login/div/div/div/div[3]/form/div[1]/div/input"));
+	  user.sendKeys("0099820099");
+	  JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+	  jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", user);  
+	  Thread.sleep(1000);
+	  
+      WebElement pass= driver.findElement(By.xpath("/html/body/app-root/div/app-login/div/div/div/div[3]/form/div[2]/div/input[2]"));
+	  pass.sendKeys("NZ0kdKF2");
+	  jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", pass);
+	  Thread.sleep(1000);
+
+	  WebElement login= driver.findElement(By.xpath("//*[@id=\"login-schedule-btn\"]"));
+	  jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", login);
+	  Thread.sleep(1000);
+	  login.click();
+	  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	  
+	  WebElement cis= driver.findElement(By.xpath("/html/body/app-root/div/app-layout/div/div/his-home/div[1]/div/div[1]/nav/ul/li[3]/a/span"));
+	  jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", cis);
+	  Thread.sleep(1000);
+	  cis.click();
+	  System.out.println(driver.getCurrentUrl());
+	  //System.out.println(driver.getWindowHandles());
+	  for(String window : driver.getWindowHandles() ) {
+		  driver.switchTo().window(window);
+	  }
+	
+	  
+	  WebElement menu1= driver.findElement(By.className("menu-btn"));
+	  jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", menu1);
+	  Thread.sleep(1000);
+	  menu1.click();
+	  
+	  Thread.sleep(1000);
+	  WebElement menu2=driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-menu/nav/ul/li[4]/a/span"));
+	  jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", menu2);
+	  Thread.sleep(1000);
+	  menu2.click();
+	  
+	  Thread.sleep(3000);
+	 for(String window : driver.getWindowHandles() ) {
+	  driver.switchTo().window(window);
+	  }
+	 //name
+	 WebElement NAME =driver.findElement(By.name("name"));
+	 jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", NAME);
+	 NAME.sendKeys(name);
+	 //family
+	 WebElement FAMILY = driver.findElement(By.name("familyName"));
+	 jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", FAMILY);
+	 FAMILY.sendKeys(familyName);
+     //father
+	 WebElement FATHER =driver.findElement(By.name("fatherName"));
+	 jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", FATHER);
+	 FATHER.sendKeys(fatherName);
+     Thread.sleep(5000);
+     //meliat
+     WebElement MELIAT =driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-add-patient/form/div[2]/div[2]/div[1]/div[2]/div[3]/kendo-combobox/span/kendo-searchbar/input"));
+     jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", MELIAT);
+     MELIAT.sendKeys(meliat);
+     MELIAT.sendKeys(Keys.DOWN);
+     Thread.sleep(1000);
+     MELIAT.sendKeys(Keys.ENTER);
+     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); 
+	 //meliCode
+     WebElement MELICODE =driver.findElement(By.name("NationalCode"));
+     jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", MELICODE);
+     MELICODE.sendKeys(NationalCode);
+     //passport
+     //driver.findElement(By.id("PatientCode")).sendKeys("987546321");
+     //sex
+     WebElement SEX =driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-add-patient/form/div[2]/div[2]/div[1]/div[3]/div[1]/kendo-combobox/span/kendo-searchbar/input"));
+     jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", SEX);
+     SEX.sendKeys(sex);
+     SEX.sendKeys(Keys.DOWN);
+     SEX.sendKeys(Keys.ENTER);
+     //BirthDate
+     WebElement BIRTHDATE =driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-add-patient/form/div[2]/div[2]/div[1]/div[3]/div[2]/mat-form-field/div/div[1]/div[1]/input"));
+     jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", BIRTHDATE);
+     BIRTHDATE.sendKeys(BirthDate);
+     //BirthPlaceout
+	 //driver.findElement(By.name("BirthPlaceOut")).sendKeys("MahalTavalod");
+     //MahalTavalod
+     WebElement BIRTHPLACE=driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-add-patient/form/div[2]/div[2]/div[1]/div[3]/div[3]/kendo-combobox/span/kendo-searchbar/input"));
+     jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", BIRTHPLACE);
+     BIRTHPLACE.sendKeys(MahalTavalod);
+     BIRTHPLACE.sendKeys(Keys.DOWN);
+     BIRTHPLACE.sendKeys(Keys.ENTER);
+     //Tahol
+     WebElement TAHOL=driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-add-patient/form/div[2]/div[2]/div[1]/div[3]/div[4]/kendo-combobox/span/kendo-searchbar/input"));
+     jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", TAHOL);
+     TAHOL.sendKeys(Tahol);
+     TAHOL.sendKeys(Keys.DOWN);
+     TAHOL.sendKeys(Keys.ENTER);
+     //shahr
+     WebElement SHAHR=driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-add-patient/form/div[2]/div[2]/div[1]/div[4]/div/div[1]/div[1]/div[2]/kendo-combobox/span/kendo-searchbar/input"));
+     jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", SHAHR);
+     SHAHR.sendKeys(shahr);
+     SHAHR.sendKeys(Keys.DOWN);
+     SHAHR.sendKeys(Keys.ENTER);
+     //Adress
+     WebElement ADRESS= driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-add-patient/form/div[2]/div[2]/div[1]/div[4]/div/div[2]/kendo-textbox-container/textarea"));
+     jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", ADRESS);
+     ADRESS.sendKeys(Adress);
+     //Phone
+     int x= (int)(Math.random()*100000000);
+     WebElement PHONE= driver.findElement(By.name("telNo"));
+     jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", PHONE);
+     PHONE.sendKeys("0935"+x);
+     //Email
+     WebElement EMAIL= driver.findElement(By.name("EAddress"));
+     jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", EMAIL);
+     EMAIL.sendKeys("test@hmail.com");
+     //Bime
+     WebElement BIME= driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-add-patient/form/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/kendo-combobox/span/kendo-searchbar/input"));
+     jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", BIME);
+     BIME.sendKeys(Bime);
+     BIME.sendKeys(Keys.DOWN);
+     BIME.sendKeys(Keys.ENTER);
+      //Sandogh
+      Thread.sleep(1000);
+      WebElement SANDOGH= driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-add-patient/form/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/kendo-combobox/span/kendo-searchbar/input"));
+      jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", SANDOGH);
+      SANDOGH.sendKeys(Sandogh);
+      SANDOGH.sendKeys(Keys.DOWN);
+      SANDOGH.sendKeys(Keys.ENTER);
+      //BimeCode
+      int y= (int)(Math.random()*10000000);
+      WebElement BIMECODE=driver.findElement(By.name("InsuranceNo"));
+      jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", BIMECODE);
+      BIMECODE.sendKeys("1"+y);
+      //BimeDate
+      WebElement BIMEDATE=driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-add-patient/form/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/mat-form-field/div/div[1]/div[1]/input"));
+      jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", BIMEDATE);
+      BIMEDATE.sendKeys(BimeDate);
+      //Nesbat
+     WebElement NESBAT=driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-add-patient/form/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/kendo-combobox/span/kendo-searchbar/input"));
+      jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", NESBAT);
+      NESBAT.sendKeys(Nesbat);
+      NESBAT.sendKeys(Keys.DOWN);
+      NESBAT.sendKeys(Keys.ENTER);
+      //Sabt
+      WebElement sabt=  driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-add-patient/form/div[2]/div[2]/div[2]/div[2]/button"));
+      jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", sabt);
+	  Thread.sleep(1000);
+      sabt.click();
+      Thread.sleep(1000);
+      WebElement POPUP= driver.findElement(By.xpath("/html/body/div[2]/div/div/snack-bar-container"));
+      jsExecutor.executeScript("arguments[0].style.border='3px solid red'", POPUP);
+      Thread.sleep(1000);
+      String c= driver.findElement(By.xpath("/html/body/div[2]/div/div/snack-bar-container")).getText();
+      System.out.print("resulte:"+ c);
+     // String c= driver.findElement(By.cssSelector("simple-snack-bar.mat-simple-snackbar.ng-star-inserted > span")).getText();
+      Assert.assertEquals(c, "پرونده بیمار با موفقیت ثبت شد.");
+      WebElement LIST=  driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-add-patient/form/div[1]/button[2]"));
+      jsExecutor.executeScript("arguments[0].style.border='3px solid red'", LIST);
+      LIST.click();
+      Thread.sleep(1000);
+      for(String window : driver.getWindowHandles() ) {
+		  driver.switchTo().window(window);
+	  }
+	
+      WebElement SEARCHMELICOD= driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-patient-list/div/app-patient-search/div[1]/form/div[2]/div[2]/div/div/div/div/kendo-textbox-container[1]/input"));
+      jsExecutor.executeScript("arguments[0].style.border='3px solid red'", SEARCHMELICOD);
+      SEARCHMELICOD.click();
+      SEARCHMELICOD.sendKeys(NationalCode);
+      SEARCHMELICOD.sendKeys(Keys.ENTER);
+      Thread.sleep(3000);
+      WebElement SEARCHFAMILY=  driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-patient-list/div/app-patient-search/div[1]/form/div[2]/div[2]/div/div/div/div/div[2]/input"));
+      jsExecutor.executeScript("arguments[0].style.border='3px solid red'", SEARCHFAMILY);
+      Thread.sleep(3000);
+      String w = SEARCHFAMILY.getAttribute("value");
+      System.out.print("resulte:"+ w);
+      Assert.assertEquals(familyName, w);
+      Thread.sleep(2000);
+
+    
+
+      
+
+ 
+	 
+  }
+  @BeforeMethod
+  public void beforeMethod() throws InterruptedException {
+	  System.setProperty("webdriver.chrome.driver", "C:\\Users\\s.mollahasani\\webdriver\\chromedriver.exe");
+	  driver = new ChromeDriver();
+	  
+	   name="سمانه";
+	   familyName="مومنی";
+	   fatherName="رضا";
+	   meliat="ایرانی";
+	   sex="زن";
+	   BirthDate="1369/02/22";
+	   MahalTavalod="سراب";
+	   Tahol="مجرد";
+	   shahr="رشت";
+	   Adress="خیابان قایم";
+	   Bime="بیمه آذر";
+	   Sandogh="صندوق آذر";
+	   BimeDate="1400/07/24";
+	   Nesbat="پدر";
+	   driver.get("http://mellicode.azmads.com/Home/");
+	   WebElement Code = driver.findElement(By.xpath("/html/body/div[2]/div[1]/h2[2]"));
+	   JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+	   jsExecutor.executeScript("arguments[0].style.border='2px solid yellow'", Code); 
+	   Thread.sleep(1000);
+	   NationalCode = driver.findElement(By.xpath("/html/body/div[2]/div[1]/h2[2]")).getText();
+	   driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);  
+	   driver.get("http://79.175.176.91:8027/");
+	   driver.manage().window().maximize();
+       
+  }
+	   @AfterMethod
+  public void afterMethod() {
+		driver.quit();
+	  
+  }
+
+}

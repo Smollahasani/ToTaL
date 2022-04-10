@@ -1,0 +1,32 @@
+package cispackage;
+
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
+
+public class Paziresh {
+	WebDriver driver;
+	JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+  @Test
+  public void f() {
+	  
+	  
+	  
+	  
+  }
+  @BeforeMethod
+  public void beforeMethod() {
+	  System.setProperty("webdriver.chrome.driver", "C:\\Users\\s.mollahasani\\webdriver\\chromedriver.exe");
+	  driver = new ChromeDriver();
+	  driver.get("http://79.175.176.91:8027/");
+	   driver.manage().window().maximize();
+  }
+
+  @AfterMethod
+  public void afterMethod() {
+  }
+
+}

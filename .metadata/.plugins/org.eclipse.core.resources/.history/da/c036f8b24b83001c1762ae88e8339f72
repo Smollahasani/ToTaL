@@ -1,0 +1,129 @@
+package cispackage;
+
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+
+public class TestCaseAddPatient {
+      String NationalCode;
+	  String name;
+      String familyName;
+	  String fatherName;
+	  String meliat;
+	  String sex;
+	  String BirthDate;
+	  String MahalTavalod;
+	  String Tahol;
+	  String shahr;
+	  String Adress;
+	  String Bime;
+	  String Sandogh;
+	  String BimeDate;
+	  String Nesbat;
+	WebDriver driver;
+	element_Highlight eh= new element_Highlight();
+
+
+  @Test
+  public void f() throws Throwable {
+	  Actions action = new Actions(driver);
+	  
+	  //Login
+	  PageObgectLogin admLoginPage = 
+				PageFactory.initElements(driver, PageObgectLogin.class);
+		admLoginPage.login(driver);
+		
+		//Landing
+		PageObject_Landing Icon = PageFactory.initElements(driver, PageObject_Landing.class);
+		Icon.CIS_Icon(driver);
+		    
+		//Change Page
+		  	  System.out.println(driver.getCurrentUrl());
+	  for(String window : driver.getWindowHandles() ) {
+		  driver.switchTo().window(window);
+	  }
+	   //EnterToAddPatientPage
+	  PageObject_MainMenu menu = PageFactory.initElements(driver, PageObject_MainMenu.class);
+	  menu.add_patient_menu(driver);
+	  
+	  
+	  Thread.sleep(3000);
+	 for(String window : driver.getWindowHandles() ) {
+	  driver.switchTo().window(window);
+	  }
+	 
+	 //AddPatient
+	 PageObject_AddPatient sick = PageFactory.initElements(driver, PageObject_AddPatient.class);
+	 sick.AddPatient(driver , NationalCode);
+	 
+	 	 	
+	//EnterToListPatientPage
+      menu.list_patient_menu(driver);
+      for(String window : driver.getWindowHandles() ) {
+		  driver.switchTo().window(window);
+	  }
+	//CheckAddPatient
+      PageObject_ListPatient CheckAdd = PageFactory.initElements(driver, PageObject_ListPatient.class);
+      CheckAdd.Search_Patient_melicode(driver, NationalCode);
+      
+      
+      WebElement Gridmelicode=  driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-patient-list/div/app-patient-search/div[2]/div/kendo-grid/div/kendo-grid-list/div/div[1]/table/tbody/tr/td[2]"));
+      Thread.sleep(2000);
+      eh.highlightElement(driver, Gridmelicode);
+      String w = Gridmelicode.getText();
+      System.out.print("resulte:"+ w);
+      Assert.assertEquals(NationalCode, w);
+      Thread.sleep(2000);
+
+    
+	 
+  }
+  @BeforeMethod
+  public void beforeMethod() throws InterruptedException {
+	  System.setProperty("webdriver.chrome.driver", "C:\\Users\\s.mollahasani\\webdriver\\chromedriver.exe");
+	  driver = new ChromeDriver();
+	  
+//	   name="سحر";
+//	   familyName="خانی";
+//	   fatherName="کامران";
+//	   meliat="ایرانی";
+//	   sex="مرد";
+//	   BirthDate="1388/1220";
+//	   MahalTavalod="سراب";
+//	   Tahol="مجرد";
+//	   shahr="رشت";
+//	   Adress="خیابان کامل";
+//	   Bime="خدمات درمانی";
+//	   Sandogh="روستایی";
+//	   BimeDate="1400/12/24";
+//	   Nesbat="سرپرست";
+       driver.get("http://mellicode.azmads.com/Home/");
+	   WebElement Code = driver.findElement(By.xpath("/html/body/div[2]/div[1]/h2[2]"));
+	   eh.highlightElement(driver, Code);
+//	   JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+//	   jsExecutor.executeScript("arguments[0].style.border='2px solid yellow'", Code); 
+	   Thread.sleep(1000);
+	   NationalCode = driver.findElement(By.xpath("/html/body/div[2]/div[1]/h2[2]")).getText();
+	   driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);  
+	//   driver.get("http://79.175.176.91:4014");
+	 //  driver.manage().window().maximize();
+	   
+
+  }
+	   @AfterMethod
+  public void afterMethod() {
+		//driver.quit();
+	  
+  }
+
+}

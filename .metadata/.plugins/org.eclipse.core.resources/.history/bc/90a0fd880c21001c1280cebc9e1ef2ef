@@ -1,0 +1,44 @@
+package cispackage;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+
+public class Variables {
+
+	public static void main(String[] args) throws Throwable {
+		// TODO Auto-generated method stub
+		WebDriver driver;
+		  System.setProperty("webdriver.chrome.driver", "C:\\Users\\s.mollahasani\\webdriver\\chromedriver.exe");
+
+		 driver = new ChromeDriver();
+		 
+		  driver.get("http://79.175.176.91:8013/");
+		  driver.manage().window().maximize();
+		  WebElement user= driver.findElement(By.xpath("/html/body/app-root/div/app-login/div/div/div/div[3]/form/div[1]/div/input"));
+		  user.sendKeys("0012768049");
+		  JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		  jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", user);  
+		  Thread.sleep(1000);
+	      WebElement pass= driver.findElement(By.xpath("/html/body/app-root/div/app-login/div/div/div/div[3]/form/div[2]/div/input[2]"));
+		  pass.sendKeys("yMzqSrd2");
+		  jsExecutor.executeScript("arguments[0].style.border='3px solid yellow'", pass);
+		  Thread.sleep(1000);
+		  driver.findElement(By.xpath("/html/body/app-root/div/app-layout/div/div/his-home/div[1]/div/div[1]/nav/ul/li[1]/a/span"));
+		  for(String window : driver.getWindowHandles() ) {
+			  driver.switchTo().window(window);
+		  }
+	     // String val = user.getAttribute("value");
+		 // System.out.println(val);
+		 // WebElement titr=driver.findElement(By.xpath("/html/body/app-root/div/app-login/div/div/div/div[2]"));
+	     // String ti = titr.getText();
+		  //System.out.println("سلام");
+		  //Assert.assertEquals(ti, "ورود به پورتال داخلی");
+
+		  driver.quit();
+	}
+
+}
